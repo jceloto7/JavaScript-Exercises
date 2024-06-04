@@ -10,6 +10,13 @@ recognition.addEventListener('result', onSpeak)
 
 function onSpeak(e) {
     chute = e.results[0][0].transcript
+    if(chute === 'game over'){
+        document.body.style.backgroundColor = 'red';
+        document.body.innerHTML = `
+            <h2>Game Over</h2>
+            <button id="jogar-novamente">Jogar novamente</button>  
+    `
+    } 
     exibeChuteNaTela(chute)
     verificaSeOChutePossuiUmValorValido(chute)
 }
